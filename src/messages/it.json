@@ -1,0 +1,19 @@
+{
+	"brand": {
+		"title": "SECRET KEYWORDS",
+		"tagline": "Etichetta techno indipendente"
+	},
+	"nav": {
+		"shop": "Shop",
+		"about": "Info",
+		"cart": "Carrello"
+	},
+	"ui": {
+		"contrast_on": "Contrasto alto attivo",
+		"contrast_off": "Contrasto alto disattivo",
+		"language": "Lingua"
+	},
+	"home": {
+		"hero_cta": "Vai allo shop"
+	}
+}

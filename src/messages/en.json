@@ -1,0 +1,19 @@
+{
+	"brand": {
+		"title": "SECRET KEYWORDS",
+		"tagline": "Independent techno label"
+	},
+	"nav": {
+		"shop": "Shop",
+		"about": "About",
+		"cart": "Cart"
+	},
+	"ui": {
+		"contrast_on": "High contrast on",
+		"contrast_off": "High contrast off",
+		"language": "Language"
+	},
+	"home": {
+		"hero_cta": "Shop now"
+	}
+}
