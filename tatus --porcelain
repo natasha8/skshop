@@ -1,0 +1,1068 @@
+[1mdiff --git a/next.config.ts b/next.config.ts[m
+[1mindex bfb6931..4c456be 100644[m
+[1m--- a/next.config.ts[m
+[1m+++ b/next.config.ts[m
+[36m@@ -6,6 +6,14 @@[m [mconst withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");[m
+ [m
+ const nextConfig: NextConfig = {[m
+ 	/* additional Next config if needed */[m
+[32m+[m	[32mimages: {[m
+[32m+[m		[32mremotePatterns: [[m
+[32m+[m			[32m{[m
+[32m+[m				[32mprotocol: "https",[m
+[32m+[m				[32mhostname: "cdn.sanity.io",[m
+[32m+[m			[32m},[m
+[32m+[m		[32m],[m
+[32m+[m	[32m},[m
+ };[m
+ [m
+ export default withNextIntl(nextConfig);[m
+[1mdiff --git a/public/file.svg b/public/file.svg[m
+[1mdeleted file mode 100644[m
+[1mindex 004145c..0000000[m
+[1m--- a/public/file.svg[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/public/globe.svg b/public/globe.svg[m
+[1mdeleted file mode 100644[m
+[1mindex 567f17b..0000000[m
+[1m--- a/public/globe.svg[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/public/next.svg b/public/next.svg[m
+[1mdeleted file mode 100644[m
+[1mindex 5174b28..0000000[m
+[1m--- a/public/next.svg[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/public/sklogo_trans.png b/public/sklogo_trans.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3aa241a[m
+Binary files /dev/null and b/public/sklogo_trans.png differ
+[1mdiff --git a/public/vercel.svg b/public/vercel.svg[m
+[1mdeleted file mode 100644[m
+[1mindex 7705396..0000000[m
+[1m--- a/public/vercel.svg[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/public/window.svg b/public/window.svg[m
+[1mdeleted file mode 100644[m
+[1mindex b2b2a44..0000000[m
+[1m--- a/public/window.svg[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/[locale]/layout.tsx b/src/app/[locale]/layout.tsx[m
+[1mindex 29a7c63..358e909 100644[m
+[1m--- a/src/app/[locale]/layout.tsx[m
+[1m+++ b/src/app/[locale]/layout.tsx[m
+[36m@@ -1,7 +1,7 @@[m
+ import type { Metadata } from "next";[m
+ import { League_Spartan } from "next/font/google";[m
+ import { NextIntlClientProvider } from "next-intl";[m
+[31m-import { getMessages, getLocale } from "next-intl/server";[m
+[32m+[m[32mimport { getMessages } from "next-intl/server";[m
+ import { locales, type AppLocale } from "@/i18n/routing";[m
+ import { Header } from "@/components/Header";[m
+ import "@/app/globals.css";[m
+[36m@@ -28,17 +28,17 @@[m [mexport default async function LocaleLayout({[m
+ 	children: React.ReactNode;[m
+ 	params: { locale: AppLocale };[m
+ }) {[m
+[31m-	const locale = (await getLocale()) as AppLocale;[m
+[31m-	const messages = await getMessages();[m
+[32m+[m	[32mconst locale = params.locale;[m
+[32m+[m	[32mconst messages = await getMessages({ locale });[m
+ [m
+ 	return ([m
+[31m-		<html lang={locale}>[m
+[32m+[m		[32m<html lang={locale} key={locale} suppressHydrationWarning>[m
+ 			<body[m
+ 				className={`${leagueSpartan.variable} antialiased bg-black text-white`}[m
+ 			>[m
+ 				<NextIntlClientProvider locale={locale} messages={messages}>[m
+ 					<Header />[m
+[31m-					<main className="min-h-dvh">{children}</main>[m
+[32m+[m					[32m<main className="min-h-dvh pt-16">{children}</main>[m
+ 				</NextIntlClientProvider>[m
+ 			</body>[m
+ 		</html>[m
+[1mdiff --git a/src/app/[locale]/page.tsx b/src/app/[locale]/page.tsx[m
+[1mindex 250d7c9..9f5bfce 100644[m
+[1m--- a/src/app/[locale]/page.tsx[m
+[1m+++ b/src/app/[locale]/page.tsx[m
+[36m@@ -1,33 +1,21 @@[m
+ "use client";[m
+ [m
+ import { useTranslations } from "next-intl";[m
+[31m-import Link from "next/link";[m
+ import { motion } from "framer-motion";[m
+[32m+[m[32mimport ProductGallery from "@/components/ProductGallery";[m
+ [m
+ export default function HomePage() {[m
+ 	const t = useTranslations();[m
+[32m+[m
+ 	return ([m
+[31m-		<div className="min-h-[80dvh] grid place-items-center p-8">[m
+[32m+[m		[32m<div className="min-h-[80dvh] p-8">[m
+ 			<motion.div[m
+[31m-				initial={{ opacity: 0, y: 10 }}[m
+[32m+[m				[32minitial={{ opacity: 0, y: 20 }}[m
+ 				animate={{ opacity: 1, y: 0 }}[m
+[31m-				transition={{ duration: 0.4 }}[m
+[31m-				className="text-center"[m
+[32m+[m				[32mtransition={{ duration: 0.5 }}[m
+[32m+[m				[32mclassName="max-w-7xl mx-auto"[m
+ 			>[m
+[31m-				<h1 className="text-4xl md:text-6xl font-bold tracking-tight">[m
+[31m-					{t("brand.title")}[m
+[31m-				</h1>[m
+[31m-				<p className="mt-3 text-sm uppercase tracking-widest opacity-80">[m
+[31m-					{t("brand.tagline")}[m
+[31m-				</p>[m
+[31m-				<div className="mt-8">[m
+[31m-					<Link[m
+[31m-						href="#shop"[m
+[31m-						className="inline-block rounded-none border border-white px-6 py-2 text-sm font-semibold hover:bg-white hover:text-black focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 underline-offset-4 focus-visible:underline"[m
+[31m-					>[m
+[31m-						{t("home.hero_cta")}[m
+[31m-					</Link>[m
+[31m-				</div>[m
+[32m+[m				[32m<ProductGallery />[m
+ 			</motion.div>[m
+ 		</div>[m
+ 	);[m
+[1mdiff --git a/src/app/[locale]/products/[slug]/page.tsx b/src/app/[locale]/products/[slug]/page.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ac62289[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/[locale]/products/[slug]/page.tsx[m
+[36m@@ -0,0 +1,369 @@[m
+[32m+[m[32m"use client";[m
+[32m+[m
+[32m+[m[32mimport { useEffect, useState } from "react";[m
+[32m+[m[32mimport { useParams } from "next/navigation";[m
+[32m+[m[32mimport Image from "next/image";[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m[32mimport { sanityClient } from "@/lib/sanity.client";[m
+[32m+[m[32mimport { PRODUCT_BY_SLUG_QUERY } from "@/lib/sanity.queries";[m
+[32m+[m[32mimport { urlFor } from "@/sanity/lib/image";[m
+[32m+[m[32mimport LoadingSpinner from "@/components/LoadingSpinner";[m
+[32m+[m
+[32m+[m[32minterface ProductVariant {[m
+[32m+[m	[32msku: string;[m
+[32m+[m	[32msize: string;[m
+[32m+[m	[32mcolor: string;[m
+[32m+[m	[32mprice: number;[m
+[32m+[m	[32mstock: number;[m
+[32m+[m	[32mlimitedEdition: boolean;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32minterface Product {[m
+[32m+[m	[32m_id: string;[m
+[32m+[m	[32mtitle: string;[m
+[32m+[m	[32mdescription_IT?: string;[m
+[32m+[m	[32mdescription_EN?: string;[m
+[32m+[m	[32mslug: string;[m
+[32m+[m	[32mtype: string;[m
+[32m+[m	[32mprice?: number;[m
+[32m+[m	[32msizes?: string[];[m
+[32m+[m	[32misPreorder: boolean;[m
+[32m+[m	[32mpreorderReleaseAt: string;[m
+[32m+[m	[32mimages: any[];[m
+[32m+[m	[32mvariants: ProductVariant[];[m
+[32m+[m	[32mdrop?: {[m
+[32m+[m		[32m_id: string;[m
+[32m+[m		[32mtitle: string;[m
+[32m+[m		[32mslug: string;[m
+[32m+[m	[32m};[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default function ProductPage() {[m
+[32m+[m	[32mconst params = useParams();[m
+[32m+[m	[32mconst slug = params.slug as string;[m
+[32m+[m
+[32m+[m	[32mconst [product, setProduct] = useState<Product | null>(null);[m
+[32m+[m	[32mconst [loading, setLoading] = useState(true);[m
+[32m+[m	[32mconst [error, setError] = useState<string | null>(null);[m
+[32m+[m	[32mconst [selectedImage, setSelectedImage] = useState(0);[m
+[32m+[m	[32mconst [selectedSize, setSelectedSize] = useState<string | null>(null);[m
+[32m+[m	[32mconst [quantity, setQuantity] = useState<number>(1);[m
+[32m+[m
+[32m+[m	[32museEffect(() => {[m
+[32m+[m		[32mconst fetchProduct = async () => {[m
+[32m+[m			[32mtry {[m
+[32m+[m				[32msetLoading(true);[m
+[32m+[m				[32mconst data = await sanityClient.fetch(PRODUCT_BY_SLUG_QUERY, {[m
+[32m+[m					[32mslug,[m
+[32m+[m				[32m});[m
+[32m+[m				[32msetProduct(data);[m
+[32m+[m			[32m} catch (err) {[m
+[32m+[m				[32mconsole.error("Error fetching product:", err);[m
+[32m+[m				[32msetError("Failed to load product");[m
+[32m+[m			[32m} finally {[m
+[32m+[m				[32msetLoading(false);[m
+[32m+[m			[32m}[m
+[32m+[m		[32m};[m
+[32m+[m
+[32m+[m		[32mif (slug) {[m
+[32m+[m			[32mfetchProduct();[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}, [slug]);[m
+[32m+[m
+[32m+[m	[32m// Reset quantity when changing size[m
+[32m+[m	[32museEffect(() => {[m
+[32m+[m		[32msetQuantity(1);[m
+[32m+[m	[32m}, [selectedSize]);[m
+[32m+[m
+[32m+[m	[32mif (loading) {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<div className="min-h-[80dvh] grid place-items-center">[m
+[32m+[m				[32m<div className="text-center">[m
+[32m+[m					[32m<LoadingSpinner size="lg" />[m
+[32m+[m					[32m<p className="text-gray-600 mt-4">Loading product...</p>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32mif (error || !product) {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<div className="min-h-[80dvh] grid place-items-center">[m
+[32m+[m				[32m<div className="text-center text-red-600">[m
+[32m+[m					[32m<p>{error || "Product not found"}</p>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32mconst lowestPrice = product.variants?.reduce([m
+[32m+[m		[32m(min, variant) => (variant.price < min ? variant.price : min),[m
+[32m+[m		[32mproduct.variants[0]?.price || 0[m
+[32m+[m	[32m);[m
+[32m+[m
+[32m+[m	[32mconst sizeOptions = Array.from([m
+[32m+[m		[32mnew Set([m
+[32m+[m			[32m(product.variants?.map((v) => v.size) || []).concat([m
+[32m+[m				[32mproduct.sizes || [][m
+[32m+[m			[32m)[m
+[32m+[m		[32m)[m
+[32m+[m	[32m);[m
+[32m+[m
+[32m+[m	[32mconst selectedVariant = selectedSize[m
+[32m+[m		[32m? product.variants?.find((v) => v.size === selectedSize)[m
+[32m+[m		[32m: undefined;[m
+[32m+[m
+[32m+[m	[32mconst displayPrice = (selectedVariant?.price ??[m
+[32m+[m		[32mproduct.price ??[m
+[32m+[m		[32mlowestPrice ??[m
+[32m+[m		[32m0) as number;[m
+[32m+[m
+[32m+[m	[32m// Quantity is intentionally unlimited (no upper bound)[m
+[32m+[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div className="max-h-[80dvh] p-8">[m
+[32m+[m			[32m<div className="mx-auto">[m
+[32m+[m				[32m<motion.div[m
+[32m+[m					[32minitial={{ opacity: 0, y: 20 }}[m
+[32m+[m					[32manimate={{ opacity: 1, y: 0 }}[m
+[32m+[m					[32mtransition={{ duration: 0.5 }}[m
+[32m+[m					[32mclassName="grid grid-cols-1 lg:grid-cols-2 gap-12"[m
+[32m+[m				[32m>[m
+[32m+[m					[32m{/* Product Images */}[m
+[32m+[m					[32m<div className="flex gap-4">[m
+[32m+[m						[32m{product.images.length > 1 && ([m
+[32m+[m							[32m<div className="flex flex-col gap-2 w-20 sm:w-24">[m
+[32m+[m								[32m{product.images.map((image, index) => ([m
+[32m+[m									[32m<button[m
+[32m+[m										[32mkey={index}[m
+[32m+[m										[32monClick={() => setSelectedImage(index)}[m
+[32m+[m										[32mclassName={`relative aspect-square overflow-hidden rounded-lg border-2 ${[m
+[32m+[m											[32mselectedImage === index[m
+[32m+[m												[32m? "border-black"[m
+[32m+[m												[32m: "border-gray-200"[m
+[32m+[m										[32m}`}[m
+[32m+[m									[32m>[m
+[32m+[m										[32m<Image[m
+[32m+[m											[32msrc={urlFor(image).url()}[m
+[32m+[m											[32malt={`${product.title} ${[m
+[32m+[m												[32mindex + 1[m
+[32m+[m											[32m}`}[m
+[32m+[m											[32mfill[m
+[32m+[m											[32mclassName="object-cover"[m
+[32m+[m											[32msizes="80px"[m
+[32m+[m										[32m/>[m
+[32m+[m									[32m</button>[m
+[32m+[m								[32m))}[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m)}[m
+[32m+[m
+[32m+[m						[32m<div className="flex-1">[m
+[32m+[m							[32m<div className="aspect-square relative overflow-hidden rounded-lg">[m
+[32m+[m								[32m{product.images[selectedImage] && ([m
+[32m+[m									[32m<Image[m
+[32m+[m										[32msrc={urlFor([m
+[32m+[m											[32mproduct.images[selectedImage][m
+[32m+[m										[32m).url()}[m
+[32m+[m										[32malt={product.title}[m
+[32m+[m										[32mfill[m
+[32m+[m										[32mclassName="object-cover"[m
+[32m+[m										[32msizes="(max-width: 768px) 100vw, 50vw"[m
+[32m+[m									[32m/>[m
+[32m+[m								[32m)}[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m</div>[m
+[32m+[m					[32m</div>[m
+[32m+[m
+[32m+[m					[32m{/* Product Info */}[m
+[32m+[m					[32m<div className="space-y-6">[m
+[32m+[m						[32m<div>[m
+[32m+[m							[32m<h1 className="text-4xl font-bold text-white mb-2 uppercase">[m
+[32m+[m								[32m{product.title}[m
+[32m+[m							[32m</h1>[m
+[32m+[m							[32m<p className="text-lg text-gray-600 capitalize">[m
+[32m+[m								[32m{product.type}[m
+[32m+[m							[32m</p>[m
+[32m+[m							[32m{product.isPreorder && ([m
+[32m+[m								[32m<div className="inline-block bg-black text-white  border px-3 py-1 rounded-full text-sm font-medium mt-2">[m
+[32m+[m									[32mPre-order[m
+[32m+[m								[32m</div>[m
+[32m+[m							[32m)}[m
+[32m+[m						[32m</div>[m
+[32m+[m
+[32m+[m						[32m{(product.description_IT || product.description_EN) && ([m
+[32m+[m							[32m<div>[m
+[32m+[m								[32m<h3 className="text-lg font-semibold text-white mb-2">[m
+[32m+[m									[32mDescription[m
+[32m+[m								[32m</h3>[m
+[32m+[m								[32m<p className="text-gray-400">[m
+[32m+[m									[32m{product.description_IT ||[m
+[32m+[m										[32mproduct.description_EN}[m
+[32m+[m								[32m</p>[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m)}[m
+[32m+[m
+[32m+[m						[32m{displayPrice > 0 && ([m
+[32m+[m							[32m<div>[m
+[32m+[m								[32m<h3 className="text-lg font-semibold text-white mb-2">[m
+[32m+[m									[32mPrice[m
+[32m+[m								[32m</h3>[m
+[32m+[m								[32m<p className="text-3xl font-bold text-white">[m
+[32m+[m									[32m€{displayPrice.toFixed(2)}[m
+[32m+[m								[32m</p>[m
+[32m+[m								[32m{selectedVariant && ([m
+[32m+[m									[32m<p className="text-sm mt-1 text-gray-400">[m
+[32m+[m										[32m{selectedVariant.stock > 0[m
+[32m+[m											[32m? `${selectedVariant.stock} in stock`[m
+[32m+[m											[32m: "Out of stock"}[m
+[32m+[m									[32m</p>[m
+[32m+[m								[32m)}[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m)}[m
+[32m+[m
+[32m+[m						[32m{/* Size and Quantity Section */}[m
+[32m+[m						[32m{sizeOptions.length > 0 && ([m
+[32m+[m							[32m<div>[m
+[32m+[m								[32m<h3 className="text-lg font-semibold text-white mb-2">[m
+[32m+[m									[32mSize & Quantity[m
+[32m+[m								[32m</h3>[m
+[32m+[m								[32m<div className="flex justify-between items-center">[m
+[32m+[m									[32m{/* Size Selection - Left Side */}[m
+[32m+[m									[32m<div className="flex-1">[m
+[32m+[m										[32m<div className="flex flex-wrap gap-1 pt-6">[m
+[32m+[m											[32m{sizeOptions.map((size) => {[m
+[32m+[m												[32mconst variantForSize =[m
+[32m+[m													[32mproduct.variants?.find([m
+[32m+[m														[32m(v) => v.size === size[m
+[32m+[m													[32m);[m
+[32m+[m												[32mconst isOut =[m
+[32m+[m													[32m(variantForSize?.stock ||[m
+[32m+[m														[32m10) <= 0;[m
+[32m+[m												[32mconst isSelected =[m
+[32m+[m													[32mselectedSize === size;[m
+[32m+[m												[32mreturn ([m
+[32m+[m													[32m<button[m
+[32m+[m														[32mkey={size}[m
+[32m+[m														[32monClick={() =>[m
+[32m+[m															[32m!isOut &&[m
+[32m+[m															[32msetSelectedSize([m
+[32m+[m																[32msize[m
+[32m+[m															[32m)[m
+[32m+[m														[32m}[m
+[32m+[m														[32mdisabled={isOut}[m
+[32m+[m														[32mclassName={[m
+[32m+[m															[32m`px-3 py-2 rounded-lg border text-sm font-medium transition-colors w-12 ` +[m
+[32m+[m															[32m(isSelected[m
+[32m+[m																[32m? "bg-black text-white border-white"[m
+[32m+[m																[32m: "bg-white text-black border-gray-300 hover:border-black") +[m
+[32m+[m															[32m(isOut[m
+[32m+[m																[32m? " opacity-50 cursor-not-allowed"[m
+[32m+[m																[32m: "")[m
+[32m+[m														[32m}[m
+[32m+[m													[32m>[m
+[32m+[m														[32m{size}[m
+[32m+[m													[32m</button>[m
+[32m+[m												[32m);[m
+[32m+[m											[32m})}[m
+[32m+[m										[32m</div>[m
+[32m+[m									[32m</div>[m
+[32m+[m
+[32m+[m									[32m{/* Quantity Selector - Right Side */}[m
+[32m+[m									[32m<div className="flex-shrink-0 pt-6">[m
+[32m+[m										[32m<div className="flex items-center bg-white rounded-lg border-2 border-gray-300 overflow-hidden">[m
+[32m+[m											[32m<button[m
+[32m+[m												[32mtype="button"[m
+[32m+[m												[32maria-label="Decrease quantity"[m
+[32m+[m												[32monClick={() =>[m
+[32m+[m													[32msetQuantity((q) =>[m
+[32m+[m														[32mMath.max(1, q - 1)[m
+[32m+[m													[32m)[m
+[32m+[m												[32m}[m
+[32m+[m												[32mdisabled={[m
+[32m+[m													[32mquantity <= 1 ||[m
+[32m+[m													[32m(selectedVariant &&[m
+[32m+[m														[32mtypeof selectedVariant.stock ===[m
+[32m+[m															[32m"number" &&[m
+[32m+[m														[32mselectedVariant.stock <=[m
+[32m+[m															[32m0)[m
+[32m+[m												[32m}[m
+[32m+[m												[32mclassName={`w-10 h-10 grid place-items-center text-black font-bold text-lg transition-colors ${[m
+[32m+[m													[32mquantity <= 1 ||[m
+[32m+[m													[32m(selectedVariant &&[m
+[32m+[m														[32mtypeof selectedVariant.stock ===[m
+[32m+[m															[32m"number" &&[m
+[32m+[m														[32mselectedVariant.stock <=[m
+[32m+[m															[32m0)[m
+[32m+[m														[32m? "opacity-50 cursor-not-allowed bg-gray-100"[m
+[32m+[m														[32m: "hover:bg-gray-100 active:bg-gray-200"[m
+[32m+[m												[32m}`}[m
+[32m+[m											[32m>[m
+[32m+[m												[32m−[m
+[32m+[m											[32m</button>[m
+[32m+[m											[32m<div className="w-16 h-10 flex items-center justify-center border-l border-r border-gray-300 bg-white">[m
+[32m+[m												[32m<span className="text-black font-semibold text-lg">[m
+[32m+[m													[32m{quantity}[m
+[32m+[m												[32m</span>[m
+[32m+[m											[32m</div>[m
+[32m+[m											[32m<button[m
+[32m+[m												[32mtype="button"[m
+[32m+[m												[32maria-label="Increase quantity"[m
+[32m+[m												[32monClick={() =>[m
+[32m+[m													[32msetQuantity((q) => q + 1)[m
+[32m+[m												[32m}[m
+[32m+[m												[32mdisabled={[m
+[32m+[m													[32mselectedVariant &&[m
+[32m+[m													[32mtypeof selectedVariant.stock ===[m
+[32m+[m														[32m"number" &&[m
+[32m+[m													[32mselectedVariant.stock <= 0[m
+[32m+[m												[32m}[m
+[32m+[m												[32mclassName={`w-10 h-10 grid place-items-center text-black font-bold text-lg transition-colors ${[m
+[32m+[m													[32mselectedVariant &&[m
+[32m+[m													[32mtypeof selectedVariant.stock ===[m
+[32m+[m														[32m"number" &&[m
+[32m+[m													[32mselectedVariant.stock <= 0[m
+[32m+[m														[32m? "opacity-50 cursor-not-allowed bg-gray-100"[m
+[32m+[m														[32m: "hover:bg-gray-100 active:bg-gray-200"[m
+[32m+[m												[32m}`}[m
+[32m+[m											[32m>[m
+[32m+[m												[32m+[m
+[32m+[m											[32m</button>[m
+[32m+[m										[32m</div>[m
+[32m+[m									[32m</div>[m
+[32m+[m								[32m</div>[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m)}[m
+[32m+[m
+[32m+[m						[32m{product.drop && ([m
+[32m+[m							[32m<div>[m
+[32m+[m								[32m<h3 className="text-lg font-semibold text-gray-900 mb-2">[m
+[32m+[m									[32mPart of Drop[m
+[32m+[m								[32m</h3>[m
+[32m+[m								[32m<p className="text-blue-600 hover:text-blue-800 cursor-pointer">[m
+[32m+[m									[32m{product.drop.title}[m
+[32m+[m								[32m</p>[m
+[32m+[m							[32m</div>[m
+[32m+[m						[32m)}[m
+[32m+[m						[32m<div className="pt-8">[m
+[32m+[m							[32m<button[m
+[32m+[m								[32mclassName={`w-full bg-black text-white border py-3 px-6 rounded-lg font-semibold transition-colors ${[m
+[32m+[m									[32m(selectedVariant &&[m
+[32m+[m										[32mselectedVariant.stock <= 0) ||[m
+[32m+[m									[32mquantity < 1[m
+[32m+[m										[32m? "opacity-50 cursor-not-allowed"[m
+[32m+[m										[32m: "hover:bg-gray-800"[m
+[32m+[m								[32m}`}[m
+[32m+[m								[32mdisabled={[m
+[32m+[m									[32m(selectedVariant &&[m
+[32m+[m										[32mselectedVariant.stock <= 0) ||[m
+[32m+[m									[32mquantity < 1[m
+[32m+[m								[32m}[m
+[32m+[m							[32m>[m
+[32m+[m								[32mAdd to Cart[m
+[32m+[m							[32m</button>[m
+[32m+[m						[32m</div>[m
+[32m+[m					[32m</div>[m
+[32m+[m				[32m</motion.div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/[locale]/products/page.tsx b/src/app/[locale]/products/page.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..854b7ed[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/[locale]/products/page.tsx[m
+[36m@@ -0,0 +1,29 @@[m
+[32m+[m[32m"use client";[m
+[32m+[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m[32mimport ProductGallery from "@/components/ProductGallery";[m
+[32m+[m
+[32m+[m[32mexport default function ProductsPage() {[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div className="min-h-[80dvh] p-8">[m
+[32m+[m			[32m<motion.div[m
+[32m+[m				[32minitial={{ opacity: 0, y: 20 }}[m
+[32m+[m				[32manimate={{ opacity: 1, y: 0 }}[m
+[32m+[m				[32mtransition={{ duration: 0.5 }}[m
+[32m+[m				[32mclassName="max-w-7xl mx-auto"[m
+[32m+[m			[32m>[m
+[32m+[m				[32m<div className="text-center mb-12">[m
+[32m+[m					[32m<h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">[m
+[32m+[m						[32mAll Products[m
+[32m+[m					[32m</h1>[m
+[32m+[m					[32m<p className="text-xl text-gray-600 max-w-2xl mx-auto">[m
+[32m+[m						[32mBrowse our complete collection of merchandise, music,[m
+[32m+[m						[32mand exclusive items[m
+[32m+[m					[32m</p>[m
+[32m+[m				[32m</div>[m
+[32m+[m
+[32m+[m				[32m<ProductGallery />[m
+[32m+[m			[32m</motion.div>[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/[locale]/studio/page.tsx b/src/app/[locale]/studio/page.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..df91e20[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/[locale]/studio/page.tsx[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32mimport { redirect } from "next/navigation";[m
+[32m+[m
+[32m+[m[32mexport default function StudioLocaleRedirect() {[m
+[32m+[m	[32mredirect("/studio");[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/layout.tsx b/src/app/layout.tsx[m
+[1mindex a75f4ee..e0ea192 100644[m
+[1m--- a/src/app/layout.tsx[m
+[1m+++ b/src/app/layout.tsx[m
+[36m@@ -1,8 +1,30 @@[m
+[31m-// Redirect to default locale. Layout is handled in `app/[locale]/layout.tsx`.[m
+[32m+[m[32mimport type { Metadata } from "next";[m
+[32m+[m[32mimport { League_Spartan } from "next/font/google";[m
+[32m+[m[32mimport "./globals.css";[m
+[32m+[m
+[32m+[m[32mconst leagueSpartan = League_Spartan({[m
+[32m+[m	[32mvariable: "--font-league-spartan",[m
+[32m+[m	[32msubsets: ["latin"],[m
+[32m+[m	[32mweight: ["400", "600", "700"],[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mexport const metadata: Metadata = {[m
+[32m+[m	[32mtitle: "SECRET KEYWORDS",[m
+[32m+[m	[32mdescription: "Independent techno label",[m
+[32m+[m[32m};[m
+[32m+[m
+ export default function RootLayout({[m
+ 	children,[m
+ }: {[m
+ 	children: React.ReactNode;[m
+ }) {[m
+[31m-	return children;[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<html>[m
+[32m+[m			[32m<body[m
+[32m+[m				[32mclassName={`${leagueSpartan.variable} antialiased bg-black text-white`}[m
+[32m+[m			[32m>[m
+[32m+[m				[32m{children}[m
+[32m+[m			[32m</body>[m
+[32m+[m		[32m</html>[m
+[32m+[m	[32m);[m
+ }[m
+[1mdiff --git a/src/components/Header.tsx b/src/components/Header.tsx[m
+[1mindex 14ca625..d641fdc 100644[m
+[1m--- a/src/components/Header.tsx[m
+[1m+++ b/src/components/Header.tsx[m
+[36m@@ -5,28 +5,28 @@[m [mimport { useLocale, useTranslations } from "next-intl";[m
+ import { usePathname } from "next/navigation";[m
+ import { Languages, Contrast } from "lucide-react";[m
+ import { useEffect, useState } from "react";[m
+[32m+[m[32mimport Image from "next/image";[m
+ [m
+ function useHighContrast() {[m
+ 	const [enabled, setEnabled] = useState(false);[m
+[32m+[m	[32mconst [mounted, setMounted] = useState(false);[m
+ [m
+ 	useEffect(() => {[m
+[31m-		const stored =[m
+[31m-			typeof window !== "undefined"[m
+[31m-				? window.localStorage.getItem("hc")[m
+[31m-				: null;[m
+[32m+[m		[32msetMounted(true);[m
+[32m+[m		[32mconst stored = window.localStorage.getItem("hc");[m
+ 		const shouldEnable = stored === "1";[m
+ 		setEnabled(shouldEnable);[m
+ 		document.documentElement.classList.toggle("hc", shouldEnable);[m
+ 	}, []);[m
+ [m
+ 	useEffect(() => {[m
+[31m-		document.documentElement.classList.toggle("hc", enabled);[m
+[31m-		if (typeof window !== "undefined") {[m
+[32m+[m		[32mif (mounted) {[m
+[32m+[m			[32mdocument.documentElement.classList.toggle("hc", enabled);[m
+ 			window.localStorage.setItem("hc", enabled ? "1" : "0");[m
+ 		}[m
+[31m-	}, [enabled]);[m
+[32m+[m	[32m}, [enabled, mounted]);[m
+ [m
+[31m-	return { enabled, setEnabled } as const;[m
+[32m+[m	[32mreturn { enabled, setEnabled, mounted } as const;[m
+ }[m
+ [m
+ export function Header() {[m
+[36m@@ -41,29 +41,42 @@[m [mexport function Header() {[m
+ 	}`;[m
+ [m
+ 	return ([m
+[31m-		<header className="flex items-center justify-between px-6 py-4 border-b border-white/15">[m
+[32m+[m		[32m<header className="fixed top-0 inset-x-0 z-50 h-16 bg-black flex items-center justify-between px-6 border-b border-white/15">[m
+ 			<Link[m
+ 				href={`/${locale}`}[m
+ 				className="font-semibold tracking-tight hover:underline underline-offset-4"[m
+ 			>[m
+[31m-				{t("brand.title")}[m
+[32m+[m				[32m<Image[m
+[32m+[m					[32msrc="/sklogo_trans.png"[m
+[32m+[m					[32malt="Logo"[m
+[32m+[m					[32mwidth={150}[m
+[32m+[m					[32mheight={100}[m
+[32m+[m					[32mclassName="w-auto h-16"[m
+[32m+[m					[32mpriority[m
+[32m+[m				[32m/>[m
+ 			</Link>[m
+[31m-			<div className="flex items-center gap-3">[m
+[31m-				<button[m
+[31m-					type="button"[m
+[31m-					onClick={() => setEnabled(!enabled)}[m
+[31m-					className="inline-flex items-center gap-2 border border-white px-3 py-1 text-xs uppercase tracking-wider hover:bg-white hover:text-black focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70"[m
+[31m-					aria-pressed={enabled}[m
+[32m+[m
+[32m+[m			[32m<nav className="hidden md:flex items-center gap-6">[m
+[32m+[m				[32m<Link[m
+[32m+[m					[32mhref={`/${locale}`}[m
+[32m+[m					[32mclassName="text-white hover:text-gray-300 transition-colors"[m
+[32m+[m				[32m>[m
+[32m+[m					[32mHome[m
+[32m+[m				[32m</Link>[m
+[32m+[m				[32m<Link[m
+[32m+[m					[32mhref={`/${locale}/products`}[m
+[32m+[m					[32mclassName="text-white hover:text-gray-300 transition-colors"[m
+ 				>[m
+[31m-					<Contrast size={14} />[m
+[31m-					{enabled ? t("ui.contrast_on") : t("ui.contrast_off")}[m
+[31m-				</button>[m
+[32m+[m					[32mProducts[m
+[32m+[m				[32m</Link>[m
+[32m+[m			[32m</nav>[m
+[32m+[m
+[32m+[m			[32m<div className="flex items-center gap-3">[m
+ 				<Link[m
+ 					href={switchHref}[m
+ 					className="inline-flex items-center gap-2 border border-white px-3 py-1 text-xs uppercase tracking-wider hover:bg-white hover:text-black focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70"[m
+ 					aria-label={t("ui.language")}[m
+ 				>[m
+[31m-					<Languages size={14} />[m
+ 					{otherLocale.toUpperCase()}[m
+ 				</Link>[m
+ 			</div>[m
+[1mdiff --git a/src/components/LoadingSpinner.tsx b/src/components/LoadingSpinner.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8a2dc88[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/LoadingSpinner.tsx[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32mexport default function LoadingSpinner({[m
+[32m+[m	[32msize = "md",[m
+[32m+[m[32m}: {[m
+[32m+[m	[32msize?: "sm" | "md" | "lg";[m
+[32m+[m[32m}) {[m
+[32m+[m	[32mconst sizeClasses = {[m
+[32m+[m		[32msm: "h-6 w-6",[m
+[32m+[m		[32mmd: "h-12 w-12",[m
+[32m+[m		[32mlg: "h-16 w-16",[m
+[32m+[m	[32m};[m
+[32m+[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div className="grid place-items-center">[m
+[32m+[m			[32m<div[m
+[32m+[m				[32mclassName={`animate-spin rounded-full border-b-2 border-blue-600 ${sizeClasses[size]}`}[m
+[32m+[m			[32m></div>[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/components/ProductCard.tsx b/src/components/ProductCard.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..387d4e8[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/ProductCard.tsx[m
+[36m@@ -0,0 +1,95 @@[m
+[32m+[m[32m"use client";[m
+[32m+[m
+[32m+[m[32mimport Image from "next/image";[m
+[32m+[m[32mimport Link from "next/link";[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m[32mimport { urlFor } from "@/sanity/lib/image";[m
+[32m+[m
+[32m+[m[32minterface ProductCardProps {[m
+[32m+[m	[32mproduct: {[m
+[32m+[m		[32m_id: string;[m
+[32m+[m		[32mtitle: string;[m
+[32m+[m		[32mslug: string;[m
+[32m+[m		[32mtype: string;[m
+[32m+[m		[32mimage: any;[m
+[32m+[m		[32mhoverImage?: any;[m
+[32m+[m		[32mprice: number;[m
+[32m+[m		[32misPreorder: boolean;[m
+[32m+[m		[32mvariants?: Array<{[m
+[32m+[m			[32mprice: number;[m
+[32m+[m			[32msize: string;[m
+[32m+[m			[32mcolor: string;[m
+[32m+[m			[32mstock: number;[m
+[32m+[m		[32m}>;[m
+[32m+[m	[32m};[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default function ProductCard({ product }: ProductCardProps) {[m
+[32m+[m	[32mconst lowestPrice = product.variants?.reduce([m
+[32m+[m		[32m(min, variant) => (variant.price < min ? variant.price : min),[m
+[32m+[m		[32mproduct.variants[0]?.price || 0[m
+[32m+[m	[32m);[m
+[32m+[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<motion.div[m
+[32m+[m			[32minitial={{ opacity: 0, y: 20 }}[m
+[32m+[m			[32manimate={{ opacity: 1, y: 0 }}[m
+[32m+[m			[32mtransition={{ duration: 0.5 }}[m
+[32m+[m			[32mclassName="group relative bg-white rounded overflow-hidden hover:shadow-xl transition-all duration-300"[m
+[32m+[m		[32m>[m
+[32m+[m			[32m<Link href={`/products/${product.slug}`}>[m
+[32m+[m				[32m<div className="aspect-9/14 relative overflow-hidden">[m
+[32m+[m					[32m{product.image && ([m
+[32m+[m						[32m<>[m
+[32m+[m							[32m<Image[m
+[32m+[m								[32msrc={urlFor(product.image).url()}[m
+[32m+[m								[32malt={product.title}[m
+[32m+[m								[32mfill[m
+[32m+[m								[32mclassName="object-contain transition-transform duration-300 group-hover:opacity-0 px-2"[m
+[32m+[m								[32msizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"[m
+[32m+[m								[32mpriority={false}[m
+[32m+[m							[32m/>[m
+[32m+[m							[32m{product.hoverImage && ([m
+[32m+[m								[32m<Image[m
+[32m+[m									[32msrc={urlFor(product.hoverImage).url()}[m
+[32m+[m									[32malt={`${product.title} hover`}[m
+[32m+[m									[32mfill[m
+[32m+[m									[32mclassName="object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-2"[m
+[32m+[m									[32msizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"[m
+[32m+[m									[32mpriority={false}[m
+[32m+[m								[32m/>[m
+[32m+[m							[32m)}[m
+[32m+[m						[32m</>[m
+[32m+[m					[32m)}[m
+[32m+[m					[32m{product.isPreorder && ([m
+[32m+[m						[32m<div className="absolute top-2 left-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-medium">[m
+[32m+[m							[32mPre-order[m
+[32m+[m						[32m</div>[m
+[32m+[m					[32m)}[m
+[32m+[m				[32m</div>[m
+[32m+[m
+[32m+[m				[32m<div className="p-4">[m
+[32m+[m					[32m<h3 className="font-semibold text-gray-900 group-hover:text-black transition-colors text-lg uppercase">[m
+[32m+[m						[32m{product.title}[m
+[32m+[m					[32m</h3>[m
+[32m+[m					[32m<div className="flex items-center justify-between">[m
+[32m+[m						[32m<p className="text-sm text-gray-500 capitalize ">[m
+[32m+[m							[32m{product.type}[m
+[32m+[m						[32m</p>[m
+[32m+[m						[32m<p className="text-sm text-black capitalize">[m
+[32m+[m							[32m€{product.price}[m
+[32m+[m						[32m</p>[m
+[32m+[m					[32m</div>[m
+[32m+[m					[32m{lowestPrice && ([m
+[32m+[m						[32m<p className="text-lg font-bold text-gray-900 mt-2">[m
+[32m+[m							[32m<span className="text-sm text-gray-500 capitalize">[m
+[32m+[m								[32m{" "}[m
+[32m+[m								[32m/ {lowestPrice.toFixed(2)}[m
+[32m+[m							[32m</span>[m
+[32m+[m						[32m</p>[m
+[32m+[m					[32m)}[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</Link>[m
+[32m+[m		[32m</motion.div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/components/ProductGallery.tsx b/src/components/ProductGallery.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2631115[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/ProductGallery.tsx[m
+[36m@@ -0,0 +1,108 @@[m
+[32m+[m[32m"use client";[m
+[32m+[m
+[32m+[m[32mimport { useEffect, useState } from "react";[m
+[32m+[m[32mimport { motion } from "framer-motion";[m
+[32m+[m
+[32m+[m[32mimport { sanityClient } from "@/lib/sanity.client";[m
+[32m+[m[32mimport { PRODUCTS_QUERY } from "@/lib/sanity.queries";[m
+[32m+[m[32mimport ProductCard from "./ProductCard";[m
+[32m+[m[32mimport LoadingSpinner from "./LoadingSpinner";[m
+[32m+[m
+[32m+[m[32minterface Product {[m
+[32m+[m	[32m_id: string;[m
+[32m+[m	[32mtitle: string;[m
+[32m+[m	[32mslug: string;[m
+[32m+[m	[32mtype: string;[m
+[32m+[m	[32mimage: any;[m
+[32m+[m	[32mhoverImage?: any;[m
+[32m+[m	[32mprice: number;[m
+[32m+[m	[32misPreorder: boolean;[m
+[32m+[m	[32mvariants?: Array<{[m
+[32m+[m		[32mprice: number;[m
+[32m+[m		[32msize: string;[m
+[32m+[m		[32mcolor: string;[m
+[32m+[m		[32mstock: number;[m
+[32m+[m	[32m}>;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default function ProductGallery() {[m
+[32m+[m	[32mconst [products, setProducts] = useState<Product[]>([]);[m
+[32m+[m	[32mconst [loading, setLoading] = useState(true);[m
+[32m+[m	[32mconst [error, setError] = useState<string | null>(null);[m
+[32m+[m
+[32m+[m	[32museEffect(() => {[m
+[32m+[m		[32mconst fetchProducts = async () => {[m
+[32m+[m			[32mtry {[m
+[32m+[m				[32msetLoading(true);[m
+[32m+[m				[32mconst data = await sanityClient.fetch(PRODUCTS_QUERY);[m
+[32m+[m				[32msetProducts(data);[m
+[32m+[m			[32m} catch (err) {[m
+[32m+[m				[32mconsole.error("Error fetching products:", err);[m
+[32m+[m				[32msetError("Failed to load products");[m
+[32m+[m			[32m} finally {[m
+[32m+[m				[32msetLoading(false);[m
+[32m+[m			[32m}[m
+[32m+[m		[32m};[m
+[32m+[m
+[32m+[m		[32mfetchProducts();[m
+[32m+[m	[32m}, []);[m
+[32m+[m
+[32m+[m	[32mif (loading) {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<div className="min-h-[400px] grid place-items-center">[m
+[32m+[m				[32m<div className="text-center">[m
+[32m+[m					[32m<LoadingSpinner size="lg" />[m
+[32m+[m					[32m<p className="text-gray-600 mt-4">Loading products...</p>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32mif (error) {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<div className="min-h-[400px] grid place-items-center">[m
+[32m+[m				[32m<div className="text-center text-red-600">[m
+[32m+[m					[32m<p>{error}</p>[m
+[32m+[m					[32m<button[m
+[32m+[m						[32monClick={() => window.location.reload()}[m
+[32m+[m						[32mclassName="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"[m
+[32m+[m					[32m>[m
+[32m+[m						[32mTry Again[m
+[32m+[m					[32m</button>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32mif (products.length === 0) {[m
+[32m+[m		[32mreturn ([m
+[32m+[m			[32m<div className="min-h-[400px] grid place-items-center">[m
+[32m+[m				[32m<div className="text-center text-gray-600">[m
+[32m+[m					[32m<p>No products found</p>[m
+[32m+[m				[32m</div>[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m);[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32mreturn ([m
+[32m+[m		[32m<div className="w-full">[m
+[32m+[m			[32m<motion.div[m
+[32m+[m				[32minitial={{ opacity: 0 }}[m
+[32m+[m				[32manimate={{ opacity: 1 }}[m
+[32m+[m				[32mtransition={{ duration: 0.5, delay: 0.2 }}[m
+[32m+[m				[32mclassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"[m
+[32m+[m			[32m>[m
+[32m+[m				[32m{products.map((product, index) => ([m
+[32m+[m					[32m<motion.div[m
+[32m+[m						[32mkey={product._id}[m
+[32m+[m						[32minitial={{ opacity: 0, y: 20 }}[m
+[32m+[m						[32manimate={{ opacity: 1, y: 0 }}[m
+[32m+[m						[32mtransition={{ duration: 0.5, delay: index * 0.1 }}[m
+[32m+[m					[32m>[m
+[32m+[m						[32m<ProductCard product={product} />[m
+[32m+[m					[32m</motion.div>[m
+[32m+[m				[32m))}[m
+[32m+[m			[32m</motion.div>[m
+[32m+[m		[32m</div>[m
+[32m+[m	[32m);[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/lib/sanity.queries.ts b/src/lib/sanity.queries.ts[m
+[1mindex 8cc3123..c85cc6f 100644[m
+[1m--- a/src/lib/sanity.queries.ts[m
+[1m+++ b/src/lib/sanity.queries.ts[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-import { groq } from 'next-sanity';[m
+[32m+[m[32mimport { groq } from "next-sanity";[m
+ [m
+ export const PRODUCTS_QUERY = groq`[m
+   *[_type == "product" && defined(slug.current)]{[m
+[36m@@ -7,9 +7,11 @@[m [mexport const PRODUCTS_QUERY = groq`[m
+     title,[m
+     "slug": slug.current,[m
+     type,[m
+[32m+[m[32m    price,[m
+     isPreorder,[m
+     preorderReleaseAt,[m
+     "image": images[0],[m
+[32m+[m[32m    "hoverImage": images[1],[m
+     variants[]{[m
+       sku,[m
+       size,[m
+[36m@@ -27,9 +29,12 @@[m [mexport const PRODUCT_BY_SLUG_QUERY = groq`[m
+     _id,[m
+     _updatedAt,[m
+     title,[m
+[31m-    description,[m
+[32m+[m[32m    description_IT,[m
+[32m+[m[32m    description_EN,[m
+     "slug": slug.current,[m
+     type,[m
+[32m+[m[32m    price,[m
+[32m+[m[32m    sizes,[m
+     isPreorder,[m
+     preorderReleaseAt,[m
+     images,[m
+[36m@@ -69,4 +74,3 @@[m [mexport const DROP_BY_SLUG_QUERY = groq`[m
+     }[m
+   }[m
+ `;[m
+[31m-[m
+[1mdiff --git a/src/middleware.ts b/src/middleware.ts[m
+[1mindex 1d82c27..229d34c 100644[m
+[1m--- a/src/middleware.ts[m
+[1m+++ b/src/middleware.ts[m
+[36m@@ -8,6 +8,6 @@[m [mexport default createMiddleware({[m
+ });[m
+ [m
+ export const config = {[m
+[31m-	// Match all request paths except for static files and API routes[m
+[31m-	matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],[m
+[32m+[m	[32m// Match all request paths except for static files, API routes, and Studio[m
+[32m+[m	[32mmatcher: ["/((?!api|_next|_vercel|studio|.*\\..*).*)"],[m
+ };[m
+[1mdiff --git a/src/sanity/schemaTypes/product.ts b/src/sanity/schemaTypes/product.ts[m
+[1mindex ff2af3e..fea9e93 100644[m
+[1m--- a/src/sanity/schemaTypes/product.ts[m
+[1m+++ b/src/sanity/schemaTypes/product.ts[m
+[36m@@ -32,43 +32,25 @@[m [mexport default defineType({[m
+ 			},[m
+ 			validation: (r) => r.required(),[m
+ 		}),[m
+[31m-		defineField({ name: "description", type: "text" }),[m
+[32m+[m		[32mdefineField({ name: "description_IT", type: "text", rows: 3 }),[m
+[32m+[m		[32mdefineField({ name: "description_EN", type: "text", rows: 3 }),[m
+ 		defineField({ name: "images", type: "array", of: [{ type: "image" }] }),[m
+ 		defineField({[m
+[31m-			name: "variants",[m
+[32m+[m			[32mname: "sizes",[m
+ 			type: "array",[m
+[31m-			of: [[m
+[31m-				{[m
+[31m-					type: "object",[m
+[31m-					fields: [[m
+[31m-						defineField({ name: "sku", type: "string" }),[m
+[31m-						defineField({ name: "size", type: "string" }),[m
+[31m-						defineField({ name: "color", type: "string" }),[m
+[31m-						defineField({[m
+[31m-							name: "price",[m
+[31m-							type: "number",[m
+[31m-							validation: (r) => r.min(0).required(),[m
+[31m-						}),[m
+[31m-						defineField({[m
+[31m-							name: "stock",[m
+[31m-							type: "number",[m
+[31m-							validation: (r) => r.min(0),[m
+[31m-						}),[m
+[31m-						defineField({[m
+[31m-							name: "limitedEdition",[m
+[31m-							type: "boolean",[m
+[31m-						}),[m
+[31m-					],[m
+[31m-					preview: {[m
+[31m-						select: {[m
+[31m-							title: "sku",[m
+[31m-							subtitle: "size",[m
+[31m-							media: "image",[m
+[31m-						},[m
+[31m-					},[m
+[31m-				},[m
+[31m-			],[m
+[32m+[m			[32mof: [{ type: "string" }],[m
+[32m+[m			[32moptions: {[m
+[32m+[m				[32mlist: [[m
+[32m+[m					[32m{ title: "S", value: "S" },[m
+[32m+[m					[32m{ title: "M", value: "M" },[m
+[32m+[m					[32m{ title: "L", value: "L" },[m
+[32m+[m					[32m{ title: "XL", value: "XL" },[m
+[32m+[m					[32m{ title: "XXL", value: "XXL" },[m
+[32m+[m				[32m],[m
+[32m+[m			[32m},[m
+[32m+[m			[32mvalidation: (r) => r.required(),[m
+ 		}),[m
+[32m+[m
+ 		defineField({[m
+ 			name: "isPreorder",[m
+ 			type: "boolean",[m
+[36m@@ -81,5 +63,13 @@[m [mexport default defineType({[m
+ 			to: [{ type: "drop" }],[m
+ 		}),[m
+ 		defineField({ name: "tags", type: "array", of: [{ type: "string" }] }),[m
+[32m+[m		[32mdefineField({ name: "price", type: "number" }),[m
+ 	],[m
+[32m+[m	[32mpreview: {[m
+[32m+[m		[32mselect: {[m
+[32m+[m			[32mtitle: "title",[m
+[32m+[m			[32msubtitle: "price",[m
+[32m+[m			[32mmedia: "images[0]",[m
+[32m+[m		[32m},[m
+[32m+[m	[32m},[m
+ });[m

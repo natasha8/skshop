@@ -8,6 +8,6 @@ export default createMiddleware({
 });
 
 export const config = {
-	// Match all request paths except for static files and API routes
-	matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+	// Match all request paths except for static files, API routes, and Studio
+	matcher: ["/((?!api|_next|_vercel|studio|.*\\..*).*)"],
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getLocale } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { locales, type AppLocale } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import "@/app/globals.css";
@@ -28,17 +28,17 @@ export default async function LocaleLayout({
 	children: React.ReactNode;
 	params: { locale: AppLocale };
 }) {
-	const locale = (await getLocale()) as AppLocale;
-	const messages = await getMessages();
+	const locale = params.locale;
+	const messages = await getMessages({ locale });
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} key={locale} suppressHydrationWarning>
 			<body
 				className={`${leagueSpartan.variable} antialiased bg-black text-white`}
 			>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Header />
-					<main className="min-h-dvh">{children}</main>
+					<main className="min-h-dvh pt-16">{children}</main>
 				</NextIntlClientProvider>
 			</body>
 		</html>

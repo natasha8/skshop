@@ -32,43 +32,25 @@ export default defineType({
 			},
 			validation: (r) => r.required(),
 		}),
-		defineField({ name: "description", type: "text" }),
+		defineField({ name: "description_IT", type: "text", rows: 3 }),
+		defineField({ name: "description_EN", type: "text", rows: 3 }),
 		defineField({ name: "images", type: "array", of: [{ type: "image" }] }),
 		defineField({
-			name: "variants",
+			name: "sizes",
 			type: "array",
-			of: [
-				{
-					type: "object",
-					fields: [
-						defineField({ name: "sku", type: "string" }),
-						defineField({ name: "size", type: "string" }),
-						defineField({ name: "color", type: "string" }),
-						defineField({
-							name: "price",
-							type: "number",
-							validation: (r) => r.min(0).required(),
-						}),
-						defineField({
-							name: "stock",
-							type: "number",
-							validation: (r) => r.min(0),
-						}),
-						defineField({
-							name: "limitedEdition",
-							type: "boolean",
-						}),
-					],
-					preview: {
-						select: {
-							title: "sku",
-							subtitle: "size",
-							media: "image",
-						},
-					},
-				},
-			],
+			of: [{ type: "string" }],
+			options: {
+				list: [
+					{ title: "S", value: "S" },
+					{ title: "M", value: "M" },
+					{ title: "L", value: "L" },
+					{ title: "XL", value: "XL" },
+					{ title: "XXL", value: "XXL" },
+				],
+			},
+			validation: (r) => r.required(),
 		}),
+
 		defineField({
 			name: "isPreorder",
 			type: "boolean",
@@ -81,5 +63,13 @@ export default defineType({
 			to: [{ type: "drop" }],
 		}),
 		defineField({ name: "tags", type: "array", of: [{ type: "string" }] }),
+		defineField({ name: "price", type: "number" }),
 	],
+	preview: {
+		select: {
+			title: "title",
+			subtitle: "price",
+			media: "images[0]",
+		},
+	},
 });

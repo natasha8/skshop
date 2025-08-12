@@ -1,4 +1,4 @@
-import { groq } from 'next-sanity';
+import { groq } from "next-sanity";
 
 export const PRODUCTS_QUERY = groq`
   *[_type == "product" && defined(slug.current)]{
@@ -7,9 +7,11 @@ export const PRODUCTS_QUERY = groq`
     title,
     "slug": slug.current,
     type,
+    price,
     isPreorder,
     preorderReleaseAt,
     "image": images[0],
+    "hoverImage": images[1],
     variants[]{
       sku,
       size,
@@ -27,9 +29,12 @@ export const PRODUCT_BY_SLUG_QUERY = groq`
     _id,
     _updatedAt,
     title,
-    description,
+    description_IT,
+    description_EN,
     "slug": slug.current,
     type,
+    price,
+    sizes,
     isPreorder,
     preorderReleaseAt,
     images,
@@ -69,4 +74,3 @@ export const DROP_BY_SLUG_QUERY = groq`
     }
   }
 `;
-
