@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 import { sanityClient } from "@/lib/sanity.client";
 import { PRODUCTS_QUERY } from "@/lib/sanity.queries";
@@ -29,21 +30,23 @@ export default function ProductGallery() {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const t = useTranslations();
+
+	const fetchProducts = async () => {
+		try {
+			setLoading(true);
+			setError(null);
+			const data = await sanityClient.fetch(PRODUCTS_QUERY);
+			setProducts(data);
+		} catch (err) {
+			console.error("Error fetching products:", err);
+			setError(t("product.loadingError"));
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	useEffect(() => {
-		const fetchProducts = async () => {
-			try {
-				setLoading(true);
-				const data = await sanityClient.fetch(PRODUCTS_QUERY);
-				setProducts(data);
-			} catch (err) {
-				console.error("Error fetching products:", err);
-				setError("Failed to load products");
-			} finally {
-				setLoading(false);
-			}
-		};
-
 		fetchProducts();
 	}, []);
 
@@ -52,7 +55,9 @@ export default function ProductGallery() {
 			<div className="min-h-[400px] grid place-items-center">
 				<div className="text-center">
 					<LoadingSpinner size="lg" />
-					<p className="text-gray-600 mt-4">Loading products...</p>
+					<p className="text-gray-600 mt-4">
+						{t("product.loadingProducts")}
+					</p>
 				</div>
 			</div>
 		);
@@ -64,10 +69,14 @@ export default function ProductGallery() {
 				<div className="text-center text-red-600">
 					<p>{error}</p>
 					<button
-						onClick={() => window.location.reload()}
+						onClick={() => {
+							setError(null);
+							setLoading(true);
+							fetchProducts();
+						}}
 						className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
 					>
-						Try Again
+						{t("product.tryAgain")}
 					</button>
 				</div>
 			</div>
@@ -78,7 +87,7 @@ export default function ProductGallery() {
 		return (
 			<div className="min-h-[400px] grid place-items-center">
 				<div className="text-center text-gray-600">
-					<p>No products found</p>
+					<p>{t("product.noProductsFound")}</p>
 				</div>
 			</div>
 		);

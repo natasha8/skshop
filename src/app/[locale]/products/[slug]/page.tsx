@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import { sanityClient } from "@/lib/sanity.client";
 import { PRODUCT_BY_SLUG_QUERY } from "@/lib/sanity.queries";
 import { urlFor } from "@/sanity/lib/image";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import AddToCartButton from "@/components/AddToCartButton";
 
 interface ProductVariant {
 	sku: string;
@@ -41,6 +43,8 @@ interface Product {
 export default function ProductPage() {
 	const params = useParams();
 	const slug = params.slug as string;
+	const locale = useLocale();
+	const t = useTranslations();
 
 	const [product, setProduct] = useState<Product | null>(null);
 	const [loading, setLoading] = useState(true);
@@ -59,7 +63,7 @@ export default function ProductPage() {
 				setProduct(data);
 			} catch (err) {
 				console.error("Error fetching product:", err);
-				setError("Failed to load product");
+				setError(t("product.loadingError"));
 			} finally {
 				setLoading(false);
 			}
@@ -80,7 +84,7 @@ export default function ProductPage() {
 			<div className="min-h-[80dvh] grid place-items-center">
 				<div className="text-center">
 					<LoadingSpinner size="lg" />
-					<p className="text-gray-600 mt-4">Loading product...</p>
+					<p className="text-gray-600 mt-4">{t("product.loading")}</p>
 				</div>
 			</div>
 		);
@@ -90,11 +94,23 @@ export default function ProductPage() {
 		return (
 			<div className="min-h-[80dvh] grid place-items-center">
 				<div className="text-center text-red-600">
-					<p>{error || "Product not found"}</p>
+					<p>{error || t("product.notFound")}</p>
 				</div>
 			</div>
 		);
 	}
+
+	// Get the correct description based on current locale
+	const getDescription = () => {
+		if (locale === "it" && product.description_IT) {
+			return product.description_IT;
+		}
+		if (locale === "en" && product.description_EN) {
+			return product.description_EN;
+		}
+		// Fallback to the other language if current language is not available
+		return product.description_IT || product.description_EN;
+	};
 
 	const lowestPrice = product.variants?.reduce(
 		(min, variant) => (variant.price < min ? variant.price : min),
@@ -185,7 +201,7 @@ export default function ProductPage() {
 							</p>
 							{product.isPreorder && (
 								<div className="inline-block bg-black text-white  border px-3 py-1 rounded-full text-sm font-medium mt-2">
-									Pre-order
+									{t("product.preorder")}
 								</div>
 							)}
 						</div>
@@ -193,11 +209,10 @@ export default function ProductPage() {
 						{(product.description_IT || product.description_EN) && (
 							<div>
 								<h3 className="text-lg font-semibold text-white mb-2">
-									Description
+									{t("product.description")}
 								</h3>
 								<p className="text-gray-400">
-									{product.description_IT ||
-										product.description_EN}
+									{getDescription()}
 								</p>
 							</div>
 						)}
@@ -205,7 +220,7 @@ export default function ProductPage() {
 						{displayPrice > 0 && (
 							<div>
 								<h3 className="text-lg font-semibold text-white mb-2">
-									Price
+									{t("product.price")}
 								</h3>
 								<p className="text-3xl font-bold text-white">
 									€{displayPrice.toFixed(2)}
@@ -213,8 +228,10 @@ export default function ProductPage() {
 								{selectedVariant && (
 									<p className="text-sm mt-1 text-gray-400">
 										{selectedVariant.stock > 0
-											? `${selectedVariant.stock} in stock`
-											: "Out of stock"}
+											? t("product.inStock", {
+													count: selectedVariant.stock,
+											  })
+											: t("product.outOfStock")}
 									</p>
 								)}
 							</div>
@@ -224,7 +241,7 @@ export default function ProductPage() {
 						{sizeOptions.length > 0 && (
 							<div>
 								<h3 className="text-lg font-semibold text-white mb-2">
-									Size & Quantity
+									{t("product.sizeAndQuantity")}
 								</h3>
 								<div className="flex justify-between items-center">
 									{/* Size Selection - Left Side */}
@@ -272,7 +289,9 @@ export default function ProductPage() {
 										<div className="flex items-center bg-white rounded-lg border-2 border-gray-300 overflow-hidden">
 											<button
 												type="button"
-												aria-label="Decrease quantity"
+												aria-label={t(
+													"product.decreaseQuantity"
+												)}
 												onClick={() =>
 													setQuantity((q) =>
 														Math.max(1, q - 1)
@@ -306,7 +325,9 @@ export default function ProductPage() {
 											</div>
 											<button
 												type="button"
-												aria-label="Increase quantity"
+												aria-label={t(
+													"product.increaseQuantity"
+												)}
 												onClick={() =>
 													setQuantity((q) => q + 1)
 												}
@@ -336,7 +357,7 @@ export default function ProductPage() {
 						{product.drop && (
 							<div>
 								<h3 className="text-lg font-semibold text-gray-900 mb-2">
-									Part of Drop
+									{t("product.partOfDrop")}
 								</h3>
 								<p className="text-blue-600 hover:text-blue-800 cursor-pointer">
 									{product.drop.title}
@@ -344,22 +365,17 @@ export default function ProductPage() {
 							</div>
 						)}
 						<div className="pt-8">
-							<button
-								className={`w-full bg-black text-white border py-3 px-6 rounded-lg font-semibold transition-colors ${
-									(selectedVariant &&
-										selectedVariant.stock <= 0) ||
-									quantity < 1
-										? "opacity-50 cursor-not-allowed"
-										: "hover:bg-gray-800"
-								}`}
+							<AddToCartButton
+								product={product}
+								selectedSize={selectedSize}
+								quantity={quantity}
+								selectedVariant={selectedVariant}
 								disabled={
 									(selectedVariant &&
 										selectedVariant.stock <= 0) ||
 									quantity < 1
 								}
-							>
-								Add to Cart
-							</button>
+							/>
 						</div>
 					</div>
 				</motion.div>

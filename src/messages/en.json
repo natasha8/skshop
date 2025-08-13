@@ -15,5 +15,35 @@
 	},
 	"home": {
 		"hero_cta": "Shop now"
+	},
+	"cart": {
+		"empty": "Your cart is empty",
+		"empty_subtitle": "Add some products to get started",
+		"total": "Total",
+		"clear_cart": "Clear Cart",
+		"checkout": "Proceed to Checkout",
+		"already_in_cart": "Already in Cart",
+		"adding": "Adding...",
+		"added": "Added to Cart!"
+	},
+	"product": {
+		"loading": "Loading product...",
+		"notFound": "Product not found",
+		"preorder": "Pre-order",
+		"description": "Description",
+		"price": "Price",
+		"inStock": "{count} in stock",
+		"outOfStock": "Out of stock",
+		"sizeAndQuantity": "Size & Quantity",
+		"partOfDrop": "Part of Drop",
+		"changeImage": "Change image",
+		"front": "Front",
+		"back": "Back",
+		"decreaseQuantity": "Decrease quantity",
+		"increaseQuantity": "Increase quantity",
+		"loadingProducts": "Loading products...",
+		"loadingError": "Failed to load product",
+		"tryAgain": "Try Again",
+		"noProductsFound": "No products found"
 	}
 }

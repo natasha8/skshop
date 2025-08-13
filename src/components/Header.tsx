@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Languages, Contrast } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import CartButton from "./CartButton";
 
 function useHighContrast() {
 	const [enabled, setEnabled] = useState(false);
@@ -56,22 +57,8 @@ export function Header() {
 				/>
 			</Link>
 
-			<nav className="hidden md:flex items-center gap-6">
-				<Link
-					href={`/${locale}`}
-					className="text-white hover:text-gray-300 transition-colors"
-				>
-					Home
-				</Link>
-				<Link
-					href={`/${locale}/products`}
-					className="text-white hover:text-gray-300 transition-colors"
-				>
-					Products
-				</Link>
-			</nav>
-
 			<div className="flex items-center gap-3">
+				<CartButton />
 				<Link
 					href={switchHref}
 					className="inline-flex items-center gap-2 border border-white px-3 py-1 text-xs uppercase tracking-wider hover:bg-white hover:text-black focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70"
