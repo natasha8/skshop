@@ -6,6 +6,7 @@ import { X, Trash2, Minus, Plus, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity/lib/image";
 
 export default function CartSidebar() {
 	const { state, removeItem, updateQuantity, closeCart, clearCart } =
@@ -58,7 +59,7 @@ export default function CartSidebar() {
 						{/* Header */}
 						<div className="flex items-center justify-between p-6 border-b border-gray-200">
 							<div className="flex items-center gap-3">
-								<ShoppingBag className="w-6 h-6" />
+								<ShoppingBag className="w-6 h-6 text-black" />
 								<h2 className="text-xl font-semibold text-gray-900">
 									{t("nav.cart")} ({state.totalItems})
 								</h2>
@@ -77,10 +78,10 @@ export default function CartSidebar() {
 								<div className="text-center py-12">
 									<ShoppingBag className="w-16 h-16 text-gray-300 mx-auto mb-4" />
 									<p className="text-gray-500 text-lg mb-2">
-										Your cart is empty
+										{t("cart.empty")}
 									</p>
 									<p className="text-gray-400">
-										Add some products to get started
+										{t("cart.empty_subtitle")}
 									</p>
 								</div>
 							) : (
@@ -95,12 +96,11 @@ export default function CartSidebar() {
 										>
 											{/* Product Image */}
 											<div className="w-20 h-20 relative flex-shrink-0">
-												{item.image &&
-												typeof item.image ===
-													"string" &&
-												item.image !== "" ? (
+												{item.image[0] ? (
 													<Image
-														src={item.image}
+														src={urlFor(
+															item.image[0]
+														).url()}
 														alt={item.title}
 														fill
 														className="object-cover rounded"
@@ -119,12 +119,14 @@ export default function CartSidebar() {
 												</h3>
 												{item.size && (
 													<p className="text-sm text-black">
-														Size: {item.size}
+														{t("product.size")}:{" "}
+														{item.size}
 													</p>
 												)}
 												{item.color && (
 													<p className="text-sm text-black">
-														Color: {item.color}
+														{t("product.color")}:{" "}
+														{item.color}
 													</p>
 												)}
 												<p className="text-sm font-medium text-black mt-1">
@@ -186,7 +188,7 @@ export default function CartSidebar() {
 						{state.items.length > 0 && (
 							<div className="border-t border-gray-200 p-6 space-y-4">
 								<div className="flex justify-between text-lg font-semibold text-black">
-									<span>Total:</span>
+									<span>{t("product.total")}:</span>
 									<span>{formatPrice(state.totalPrice)}</span>
 								</div>
 
@@ -195,7 +197,7 @@ export default function CartSidebar() {
 										onClick={clearCart}
 										className="w-full py-3 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
 									>
-										Clear Cart
+										{t("product.clearCart")}
 									</button>
 
 									<Link
@@ -203,7 +205,7 @@ export default function CartSidebar() {
 										onClick={closeCart}
 										className="block w-full py-3 px-4 bg-black text-white text-center rounded-lg hover:bg-gray-800 transition-colors"
 									>
-										Proceed to Checkout
+										{t("product.checkout")}
 									</Link>
 								</div>
 							</div>

@@ -44,6 +44,10 @@
 		"loadingProducts": "Loading products...",
 		"loadingError": "Failed to load product",
 		"tryAgain": "Try Again",
-		"noProductsFound": "No products found"
+		"noProductsFound": "No products found",
+		"size": "Size",
+		"color": "Color",
+		"clearCart": "Clear Cart",
+		"checkout": "Proceed to Checkout"
 	}
 }

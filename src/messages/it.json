@@ -44,6 +44,10 @@
 		"loadingProducts": "Caricamento prodotti...",
 		"loadingError": "Errore nel caricamento prodotto",
 		"tryAgain": "Riprova",
-		"noProductsFound": "Nessun prodotto trovato"
+		"noProductsFound": "Nessun prodotto trovato",
+		"size": "Taglia",
+		"color": "Colore",
+		"clearCart": "Svuota Carrello",
+		"checkout": "Procedi al Checkout"
 	}
 }
